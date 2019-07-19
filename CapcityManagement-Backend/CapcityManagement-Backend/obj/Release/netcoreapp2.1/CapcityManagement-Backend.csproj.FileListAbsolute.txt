@@ -1,0 +1,15 @@
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\bin\Release\netcoreapp2.1\CapcityManagement-Backend.deps.json
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\bin\Release\netcoreapp2.1\CapcityManagement-Backend.runtimeconfig.json
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\bin\Release\netcoreapp2.1\CapcityManagement-Backend.runtimeconfig.dev.json
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\bin\Release\netcoreapp2.1\CapcityManagement-Backend.dll
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\bin\Release\netcoreapp2.1\CapcityManagement-Backend.pdb
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.csprojAssemblyReference.cache
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.csproj.CoreCompileInputs.cache
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.RazorAssemblyInfo.cache
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.RazorAssemblyInfo.cs
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.AssemblyInfoInputs.cache
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.AssemblyInfo.cs
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.RazorTargetAssemblyInfo.cache
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.dll
+C:\Users\tekommin.REDMOND\source\repos\CapcityManagement-Backend\CapcityManagement-Backend\obj\Release\netcoreapp2.1\CapcityManagement-Backend.pdb
