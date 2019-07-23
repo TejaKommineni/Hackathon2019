@@ -8,7 +8,7 @@ export default class Global extends React.Component {
 
 	render() {
 		return (				
-			<Container fluid={true}  style={{ paddingLeft: 0, paddingRight: 0, height: "100%" }} >
+			<Container fluid = {true}  style={{paddingLeft: 0, paddingRight: 0, height: "100%"}} >
 			<Row style={{height: "10%", margin: 0}}>
 			  <Col style={{paddingLeft: 0, paddingRight: 0 }}><TopNavbar/></Col>
 			</Row>
