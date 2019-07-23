@@ -9,23 +9,23 @@ class Geographical extends Component {
     let geographyType  = this.props.match.params.id;
     console.log(geographyType);
     let geographyValue = "";
-    if(geographyType == 1)
+    if(geographyType === 1)
     {
       geographyValue  = "Americas";
     } 
-    if(geographyType == 2)
+    if(geographyType === 2)
     {
       geographyValue  = "Asia Pacific";
     } 
-    if(geographyType == 3)
+    if(geographyType === 3)
     {
       geographyValue  = "Europe";
     } 
-    if(geographyType == 4)
+    if(geographyType === 4)
     {
       geographyValue  = "Middle East And Africa";
     } 
-    if(geographyType == 5)
+    if(geographyType === 5)
     {
       geographyValue  = "Azure Government";
     } 

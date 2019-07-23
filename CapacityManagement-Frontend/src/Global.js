@@ -9,11 +9,11 @@ export default class Global extends React.Component {
 	render() {
 		return (				
 			<Container fluid={true}  style={{ paddingLeft: 0, paddingRight: 0, height: "100%" }} >
-			<Row style={{height: "10%", margin: 0}}>
-			  <Col style={{paddingLeft: 0, paddingRight: 0 }}><TopNavbar/></Col>
+			<Row>
+			  <Col><TopNavbar/></Col>
 			</Row>
-			<Row style={{paddingLeft: 0, paddingRight: 0, height: "90%", margin: 0}} >
-			  <Col style={{paddingLeft: 0, paddingRight: 0}}><Map/></Col>
+			<Row style={{ paddingLeft: 0, paddingRight: 0, height: "100%" }} >
+			  <Col><Map/></Col>
 			</Row>
 		  </Container>
 		);
