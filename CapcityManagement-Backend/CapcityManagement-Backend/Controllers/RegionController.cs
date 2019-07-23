@@ -27,13 +27,23 @@ namespace CapcityManagement_Backend.Controllers
         {
 
             // Create an HTTP request
-            WebRequest request = WebRequest.Create(new Uri("https://xstore.kusto.windows.net"));            
+            WebRequest request = WebRequest.Create(new Uri("https://xstore.kusto.windows.net"));
 
-                     
+            // Create Auth Context for AAD (common or tenant-specific endpoint):
+            AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47");
+
+            // Acquire application token for Kusto:
+            ClientCredential applicationCredentials = new ClientCredential("89c3444f-38ad-440c-a365-2009c8d8f569", "W150Abzn?SRwNc7[rhM=j*vJp?HY2xbX");
+            AuthenticationResult result =
+                    authContext.AcquireTokenAsync("https://xstore.kusto.windows.net", applicationCredentials).GetAwaiter().GetResult();
+
+            // Extract Bearer access token and set the Authorization header on your request:
+            string bearerToken = result.AccessToken;
+
             KustoConnectionStringBuilder kcsb = new KustoConnectionStringBuilder("https://xstore.kusto.windows.net;Fed=true");
 
-            //kcsb.UserID = "tekommin@microsoft.com";
-            //kcsb.Password = "";
+            kcsb.ApplicationToken = bearerToken;               
+            
 
             ICslQueryProvider client = KustoClientFactory.CreateCslQueryProvider(kcsb);
             ClientRequestProperties clientRequestProperties = new ClientRequestProperties() { ClientRequestId = Guid.NewGuid().ToString() };
