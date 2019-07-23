@@ -5,7 +5,8 @@ import {
 } from './Actions'
 
 const initialState = {
-    selectedGeography : ""
+    selectedGeography : "",
+    selectedRegion : ""
 }
 
 function regional(state = initialState, action) {
@@ -16,8 +17,12 @@ function regional(state = initialState, action) {
         selectedGeography: action.selectedGeography
       }; 
     }       
-    case SELECT_REGION:
-     return state
+    case SELECT_REGION:{
+      return {
+        ...state,
+        selectedRegion: action.selectedRegion
+      }; 
+    }   
     default:
       return state
   }

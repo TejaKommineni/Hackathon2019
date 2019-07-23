@@ -43,6 +43,12 @@ selectGeography = (selectedGeography) =>
     console.log(this.props.selectGeography);
     this.props.selectGeography(selectedGeography.target.value);
 }
+
+selectRegion = (selectedRegion) =>
+{
+    this.props.selectRegion(selectedRegion.target.value);
+}
+
 render() {
 
     this.getRegionsForGeography();
@@ -75,7 +81,7 @@ render() {
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridRegions">
                         <Form.Label>Regions</Form.Label>
-                        <Form.Control as="select">
+                        <Form.Control as="select" onChange={this.selectRegion}>
                             <option>Choose...</option>
                             {this.listRegions != null &&
                              this.listRegions.map((e) => {
