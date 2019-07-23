@@ -25,7 +25,43 @@ namespace CapcityManagement_Backend.Controllers
         [HttpGet("all")]
         public async Task<HttpResponse<string>> Get()
         {
-            var json = "teja";
+
+            // Create an HTTP request
+            WebRequest request = WebRequest.Create(new Uri("https://xstore.kusto.windows.net"));            
+
+                     
+            KustoConnectionStringBuilder kcsb = new KustoConnectionStringBuilder("https://xstore.kusto.windows.net;Fed=true");
+
+            //kcsb.UserID = "tekommin@microsoft.com";
+            //kcsb.Password = "";
+
+            ICslQueryProvider client = KustoClientFactory.CreateCslQueryProvider(kcsb);
+            ClientRequestProperties clientRequestProperties = new ClientRequestProperties() { ClientRequestId = Guid.NewGuid().ToString() };
+            client.DefaultDatabaseName = "xdataanalytics";            
+            IDataReader reader = client.ExecuteQuery(
+                 @"database('xdataanalytics').TenantCatalog
+                     | where TIMESTAMP > ago(2d)
+                     | where IsReadyForCustomer
+                     | project Name, GeoPairName, GeoRegion, GeoSetup
+                     | join(
+                              TenantCatalog
+                              | where TIMESTAMP > ago(2d)
+                              | project Name, GeoPairName, GeoRegion, GeoSetup
+                             ) on $left.GeoPairName == $right.Name
+                      | project Name, GeoPairName, GeoRegion, GeoPairRegion = GeoRegion1, GeoSetup, GeoPairSetup = GeoSetup1 
+                      | summarize by Name, GeoPairName, GeoRegion, GeoPairRegion, GeoSetup, GeoPairSetup 
+                      | project GeoRegion, GeoPairRegion, IsPrimary = iff(GeoSetup contains 'Primary',1,0)
+                      | summarize NumberOfPrimaryTenants = sum(IsPrimary) by GeoRegion, GeoPairRegion
+                      | join (
+                                database('xstore').SellableCapacityRegionalCore
+                                 | where TimePeriod > ago(1d)
+                                 | summarize arg_max(TimePeriod, *) by Region
+                                 | project GeoRegion = Region, ENUtilization, SellableCapacity
+                             ) on GeoRegion
+                      | project GeoRegion , GeoPairRegion, NumberOfPrimaryTenants, ENUtilization, SellableCapacity ", clientRequestProperties);
+            var r = Serialize(reader);
+            string json = JsonConvert.SerializeObject(r, Formatting.Indented);
+            Debug.WriteLine(json);
             return HttpResponseFactory.CreateOKResponse(json);
             
         }
