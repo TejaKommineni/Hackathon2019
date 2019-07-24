@@ -80,7 +80,7 @@ class Map extends React.Component {
         
         var polygonTemplate = worldSeries.mapPolygons.template;
         polygonTemplate.tooltipText = "{name}";
-        //polygonTemplate.fill = chart.colors.getIndex(0);
+        polygonTemplate.fill = am4core.color("#cadeec");
         polygonTemplate.nonScalingStroke = true;
         
         // Hover state
@@ -295,46 +295,36 @@ class Map extends React.Component {
     polygonSeries.useGeodata = true;
     var polygonTemplate = polygonSeries.mapPolygons.template;
     polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.fill = am4core.color("#cadeec");
     let hs = polygonTemplate.states.create("hover");
     hs.properties.fill = am4core.color("#367B25");
     polygonSeries.heatRules.push({
       property: "fill",
       target: polygonSeries.mapPolygons.template,
-      min: am4core.color("#FFFFFF"),
-      max: am4core.color("#67b7dc")
+      min: am4core.color("#F5DBCB"),
+      max: am4core.color("#ED7B84")
     });
     
-    /*var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
-    var polygonTemplate = polygonSeries.mapPolygons.template;
-    polygonTemplate.tooltipText = "{name}: {value.value.formatNumber('#.0')}";*/
-
-  
-
-
-
-    /*polygonSeries.mapPolygons.template.events.on("over", event => {
-      handleHover(event.target);
-    });*/
-
-    /*polygonSeries.mapPolygons.template.events.on("hit", event => {
-      handleHover(event.target);
-    });*/
-
-    var min = 0;
-    var max = 1;
+    var idValueMap = {};
     polygonSeries.data = [];
     for (var count in this.state.liveRegions) {
       var liveRegion = this.state.liveRegions[count];
       if(this.azureLocations[liveRegion.GeoRegion]) {
-        var temp = {}
-        temp.id = this.azureLocations[liveRegion.GeoRegion].country_code;
-        temp.value = liveRegion.ENUtilization;
-        polygonSeries.data.push(temp);
-        min = Math.min(temp.value, min);
-        max = Math.max(temp.value, max);
+        var id = this.azureLocations[liveRegion.GeoRegion].country_code;
+        if(idValueMap[id]) {
+          idValueMap[id] = Math.max(idValueMap[id], liveRegion.ENUtilization);
+        } else {
+          idValueMap[id] = liveRegion.ENUtilization;
+        }
       }   
     }
-
+    for(var key in idValueMap) {
+      var temp = {};
+      temp.id = key;
+      temp.value = idValueMap[key];
+      polygonSeries.data.push(temp);
+    }
+    console.log("polygonSeries", polygonSeries.data);
     
 // life expectancy data
     /*for (var liveRegion of this.state.liveRegions)
@@ -367,9 +357,9 @@ class Map extends React.Component {
     heatLegend.width = am4core.percent(80);
     //heatLegend.series = polygonSeries;
     heatLegend.minValue = min;
-    heatLegend.minColor = "#FFFFFF";
+    heatLegend.minColor = "#F5DBCB";
     heatLegend.maxValue = max;
-    heatLegend.maxColor = "#67b7dc";
+    heatLegend.maxColor = "#ED7B84";
     heatLegend.orientation = "vertical";
     heatLegend.padding(20, 20, 20, 20);
     heatLegend.valueAxis.renderer.labels.template.fontSize = 10;
