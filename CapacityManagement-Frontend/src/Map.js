@@ -8,6 +8,15 @@ import am4geodata_usaLow from "@amcharts/amcharts4-geodata/usaLow";
 import am4geodata_australiaLow from "@amcharts/amcharts4-geodata/australiaLow";
 import am4geodata_indiaLow from "@amcharts/amcharts4-geodata/indiaLow";
 import am4geodata_canadaLow from "@amcharts/amcharts4-geodata/canadaLow";
+import am4geodata_ukLow from "@amcharts/amcharts4-geodata/ukLow";
+import am4geodata_brazilLow from "@amcharts/amcharts4-geodata/brazilLow";
+import am4geodata_southAfricaLow from "@amcharts/amcharts4-geodata/southAfricaLow";
+import am4geodata_chinaLow from "@amcharts/amcharts4-geodata/chinaLow";
+import am4geodata_franceLow from "@amcharts/amcharts4-geodata/franceLow";
+import am4geodata_germanyLow from "@amcharts/amcharts4-geodata/germanyLow";
+import am4geodata_japanLow from "@amcharts/amcharts4-geodata/japanLow";
+
+
 import azureLocations from './AzureLocations.json';
 am4core.useTheme(am4themes_animated);
 
@@ -50,10 +59,10 @@ class Map extends React.Component {
   initialize(chart)
   {
     this.renderWorldMap(chart)
-    this.overlayMap(chart, am4geodata_usaLow);
+    /*this.overlayMap(chart, am4geodata_usaLow);
     this.overlayMap(chart, am4geodata_australiaLow);
     this.overlayMap(chart, am4geodata_indiaLow);
-    this.overlayMap(chart, am4geodata_canadaLow);
+    this.overlayMap(chart, am4geodata_canadaLow);*/
     this.getAllRegions();
   }
 
@@ -71,7 +80,7 @@ class Map extends React.Component {
         
         var polygonTemplate = worldSeries.mapPolygons.template;
         polygonTemplate.tooltipText = "{name}";
-        polygonTemplate.fill = chart.colors.getIndex(0);
+        polygonTemplate.fill = am4core.color("#cadeec");
         polygonTemplate.nonScalingStroke = true;
         
         // Hover state
@@ -83,21 +92,24 @@ class Map extends React.Component {
           console.log(chart.zoomLevel);
           console.log(chart.zoomGeoPoint);
         })
+  }
 
-        // Set Zoom Control
-        chart.zoomControl = new am4maps.ZoomControl();
-        var homeButton = new am4core.Button();
-        homeButton.events.on("hit", function(){
-          chart.goHome();
-        });
+  setZoomControl(chart)
+  {
+    // Set Zoom Control
+    chart.zoomControl = new am4maps.ZoomControl();
+    var homeButton = new am4core.Button();
+    homeButton.events.on("hit", function(){
+      chart.goHome();
+    });
 
-        homeButton.icon = new am4core.Sprite();
-        homeButton.padding(7, 5, 7, 5);
-        homeButton.width = 30;
-        homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
-        homeButton.marginBottom = 10;
-        homeButton.parent = chart.zoomControl;
-        homeButton.insertBefore(chart.zoomControl.plusButton);
+    homeButton.icon = new am4core.Sprite();
+    homeButton.padding(7, 5, 7, 5);
+    homeButton.width = 30;
+    homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+    homeButton.marginBottom = 10;
+    homeButton.parent = chart.zoomControl;
+    homeButton.insertBefore(chart.zoomControl.plusButton);
   }
 
   overlayMap(chart, geodata)
@@ -119,10 +131,22 @@ class Map extends React.Component {
   updateRenderedMap(chart)
   {
     this.updateAzureLocations();
+    this.applyHeatLegend(chart, am4geodata_usaLow);
+    this.applyHeatLegend(chart, am4geodata_australiaLow);
+    this.applyHeatLegend(chart, am4geodata_indiaLow);
+    this.applyHeatLegend(chart, am4geodata_canadaLow);
+    this.applyHeatLegend(chart, am4geodata_ukLow);
+    this.applyHeatLegend(chart, am4geodata_brazilLow);
+    this.applyHeatLegend(chart, am4geodata_southAfricaLow);
+    this.applyHeatLegend(chart, am4geodata_chinaLow);
+    this.applyHeatLegend(chart, am4geodata_franceLow);
+    this.applyHeatLegend(chart, am4geodata_germanyLow);
+    this.applyHeatLegend(chart, am4geodata_japanLow);
+    this.addHeatLegend(chart);
     this.renderGeoLocations(chart);
     this.renderGeoPairLines(chart);
     this.zoomToSelectedRegions(chart);
-    this.applyHeatLegend(chart);
+    this.setZoomControl(chart);
   }
 
   updateAzureLocations()
@@ -158,7 +182,7 @@ class Map extends React.Component {
     imageSeriesTemplate.propertyFields.longitude = "longitude";
 
     let imageSeriesData = [];
-    console.log(this.state.liveRegions);
+    console.log("Live Regions: ", this.state.liveRegions);
     for (var liveRegion of this.state.liveRegions)
     {
         imageSeriesData.push(this.azureLocations[liveRegion.GeoRegion]);
@@ -263,9 +287,47 @@ class Map extends React.Component {
     }
   }
 
-  applyHeatLegend(chart)
+  applyHeatLegend(chart, geodata)
   {
-    for (var liveRegion of this.state.liveRegions)
+    console.log("geodata: ", geodata)
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.geodata = geodata;
+    polygonSeries.useGeodata = true;
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}";
+    polygonTemplate.fill = am4core.color("#cadeec");
+    let hs = polygonTemplate.states.create("hover");
+    hs.properties.fill = am4core.color("#367B25");
+    polygonSeries.heatRules.push({
+      property: "fill",
+      target: polygonSeries.mapPolygons.template,
+      min: am4core.color("#F5DBCB"),
+      max: am4core.color("#ED7B84")
+    });
+    
+    var idValueMap = {};
+    polygonSeries.data = [];
+    for (var count in this.state.liveRegions) {
+      var liveRegion = this.state.liveRegions[count];
+      if(this.azureLocations[liveRegion.GeoRegion]) {
+        var id = this.azureLocations[liveRegion.GeoRegion].country_code;
+        if(idValueMap[id]) {
+          idValueMap[id] = Math.max(idValueMap[id], liveRegion.ENUtilization);
+        } else {
+          idValueMap[id] = liveRegion.ENUtilization;
+        }
+      }   
+    }
+    for(var key in idValueMap) {
+      var temp = {};
+      temp.id = key;
+      temp.value = idValueMap[key];
+      polygonSeries.data.push(temp);
+    }
+    console.log("polygonSeries", polygonSeries.data);
+    
+// life expectancy data
+    /*for (var liveRegion of this.state.liveRegions)
     {
         let temp = this.azureLocations[liveRegion.GeoRegion];
         if(temp != undefined)
@@ -274,9 +336,50 @@ class Map extends React.Component {
           temp['SellableCapacity'] = "SellableCapacity : " + liveRegion.SellableCapacity;
           this.azureLocations[liveRegion.GeoRegion] = temp;
         }
-    }
+    }*/
   }
 
+  addHeatLegend(chart)
+  {
+    var min = 1;
+    var max = 0;
+    for (var count in this.state.liveRegions) {
+      var liveRegion = this.state.liveRegions[count];
+      if(this.azureLocations[liveRegion.GeoRegion]) {
+        min = Math.min(liveRegion.ENUtilization, min);
+        max = Math.max(liveRegion.ENUtilization, max);
+      }   
+    }
+    // add heat legend
+    var heatLegend = chart.chartContainer.createChild(am4maps.HeatLegend);
+    heatLegend.valign = "bottom";
+    heatLegend.align = "left";
+    heatLegend.width = am4core.percent(80);
+    //heatLegend.series = polygonSeries;
+    heatLegend.minValue = min;
+    heatLegend.minColor = "#F5DBCB";
+    heatLegend.maxValue = max;
+    heatLegend.maxColor = "#ED7B84";
+    heatLegend.orientation = "vertical";
+    heatLegend.padding(20, 20, 20, 20);
+    heatLegend.valueAxis.renderer.labels.template.fontSize = 10;
+    heatLegend.valueAxis.renderer.minGridDistance = 40;
+
+    var minRange = heatLegend.valueAxis.axisRanges.create();
+    minRange.value = heatLegend.minValue;
+    minRange.label.text = "0";
+    var maxRange = heatLegend.valueAxis.axisRanges.create();
+    maxRange.value = heatLegend.maxValue;
+    maxRange.label.text = "1";
+
+    function handleHover(mapPolygon) {
+      if (!isNaN(mapPolygon.dataItem.value)) {
+        heatLegend.valueAxis.showTooltipAt(mapPolygon.dataItem.value);
+      } else {
+        heatLegend.valueAxis.hideTooltip();
+      }
+    }
+  }
 
   getAllRegions()
   {

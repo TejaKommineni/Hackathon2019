@@ -4,295 +4,341 @@
                         "region" : "Region : East Asia", 
                         "location": "Location : Hong Kong",
                         "latitude" : 22.3193,
-                        "longitude": 114.1694
+                        "longitude": 114.1694,
+                        "country_code": "CN-HK"
                      },
      "asiasoutheast": {
                        "geography" : "Asia Pacific",  
                        "region" : "Region : Southeast Asia", 
                        "location": "Location : Singapore",
                        "latitude" : 1.290270,
-                       "longitude": 103.851959
+                       "longitude": 103.851959,
+                       "country_code": "SG"
                      },
     "australiac":    { "geography" : "Asia Pacific",
                        "region" : "Region : Australia Central", 
                        "location": "Location : Canberra",
                        "latitude" : -29.73865,
-                       "longitude":  141.88375
+                       "longitude":  141.88375,
+                       "country_code": "AU-ACT"
                      },
     "australiac2":   { "geography" : "Asia Pacific",
                        "region" : "Region : Australia Central 2", 
                        "location": "Location : Canberra",
                        "latitude" :  -35.28346,
-                       "longitude": 149.12807
+                       "longitude": 149.12807,
+                       "country_code": "AU-ACT"
                      },
     "australiaeast": { "geography" : "Asia Pacific",
                        "region" : "Region : Australia East", 
                        "location": "Location : New South Wales",
                        "latitude" : -30.296276, 
-                       "longitude":  153.114136
+                       "longitude":  153.114136,
+                       "country_code": "AU-NSW"
                      },
     "australiasoutheast": { "geography" : "Asia Pacific",
                             "region" : "Region : Australia Southeast", 
                             "location": "Location : Victoria",
                             "latitude" : -37.814,
-                            "longitude": 144.96332
+                            "longitude": 144.96332,
+                            "country_code": "AU-VIC"
                           },
     "brazilsouth":    {  "geography" : "Americas",
                           "region" : "Region : Brazil South", 
                           "location": "Location : Sao Paulo State",
                           "latitude" : -23.533773,
-                          "longitude": -46.625290
+                          "longitude": -46.625290,
+                          "country_code": "BR-SP"
                       },
     "canadacentral":  { "geography" : "Americas",
                       "region" : "Region : Canada Central", 
                       "location": "Location : Toronto",
                       "latitude" : 51.617,
-                      "longitude": -85.933
+                      "longitude": -85.933,
+                      "country_code": "CA-ON"
                       },
     "canadaeast":     { "geography" : "Americas",
                         "region" : "Region : Canada East", 
                         "location": "Location : Quebec City",
                         "latitude" : 49.6499974,
-                        "longitude": -76.4833314
+                        "longitude": -76.4833314,
+                        "country_code": "CA-QC"
                       },
     "chinaeast":     { "geography" : "Asia Pacific",
                         "region" : "Region : China East", 
                         "location": "Location : Shanghai",
                         "latitude" : 31.22222,
-                        "longitude": 121.45806
+                        "longitude": 121.45806,
+                        "country_code": "CN-SH"
                      },
     "chinae2":       { "geography" : "Asia Pacific", 
                         "region" : "Region : China East 2", 
                         "location": "Location : Shanghai",
                         "latitude" : 28.529,  
-                        "longitude": 120.434
+                        "longitude": 120.434,
+                        "country_code": "CN-SH"
                      },
     "chinanorth":    { "geography" : "Asia Pacific",
                       "region" : "Region : China North", 
                       "location": "Location : Beijing",
                       "latitude" : 39.9075,
-                      "longitude": 116.39723
+                      "longitude": 116.39723,
+                      "country_code": "CN-BJ"
                    },
     "chinan2":     {  "geography" : "Asia Pacific",
                       "region" : "Region : China North 2", 
                       "location": "Location : Beijing",
                       "latitude" : 38.0, 
-                      "longitude": 112.0
+                      "longitude": 112.0,
+                      "country_code": "CN-BJ"
                    },
     "indiacentral":{ "geography" : "Asia Pacific", 
                     "region" : "Region : Central India", 
                     "location": "Location : Pune",
                     "latitude" : 19.87757,
-                    "longitude": 75.34226
+                    "longitude": 75.34226,
+                    "country_code": "IN-MH"
                    },
     "indiasouth":  { "geography" : "Asia Pacific",
                     "region" : "Region : South India", 
                     "location": "Location : Chennai",
                     "latitude" : 13.08784,
-                    "longitude": 80.27847
+                    "longitude": 80.27847,
+                    "country_code": "IN-TN"
                    },
     "indiawest":   { "geography" : "Asia Pacific", 
                     "region" : "Region : West India", 
                     "location": "Location : Mumbai",
                     "latitude" : 19.07283,
-                    "longitude": 72.88261
+                    "longitude": 72.88261,
+                    "country_code": "IN-MH"
                    },
     "japaneast":  { "geography" : "Asia Pacific",
                     "region" : "Region : Japan East", 
                     "location": "Location : Tokyo, Saitama",
                     "latitude" : 42.923901,
-                    "longitude": 143.196106
+                    "longitude": 143.196106,
+                    "country_code": "JP-13"
                   },
     "japanwest":   {"geography" : "Asia Pacific",  
                     "region" : "Region : Japan West", 
                     "location": "Location : Osaka",
                     "latitude" : 34.6937378,
-                    "longitude": 135.502165
+                    "longitude": 135.502165,
+                    "country_code": "JP-27"
                    },
     "koreacentral":{ "geography" : "Asia Pacific",
                     "region" : "Region : Korean Central", 
                     "location": "Location : Seoul",
                     "latitude" : 37.566, 
-                    "longitude": 126.9784
+                    "longitude": 126.9784,
+                    "country_code": "KR-11"
                   },
     "koreasouth": { "geography" : "Asia Pacific",
                     "region" : "Region : Korea South", 
                     "location": "Location : Busan",
                     "latitude" : 35.179554,
-                    "longitude": 129.075642
+                    "longitude": 129.075642,
+                    "country_code": "KR-26"
                    },
     "southafricaw":{ "geography" : "Middle East and Africa",
                     "region" : "Region : South Africa West", 
                     "location": "Location : Cape Town",
                     "latitude" : -33.918861,
-                    "longitude": 18.423300
+                    "longitude": 18.423300,
+                    "country_code": "ZA-WC"
                   },
     "southafrican": { 
                     "geography" : "Middle East and Africa",
                     "region" : "Region : South Africa North", 
                     "location": "Location : Johannesburg",
                     "latitude" : -26.20227, 
-                    "longitude": 28.04363
+                    "longitude": 28.04363,
+                    "country_code": "ZA-NC"
                    },
     "uaec":       { 
                     "geography" : "Middle East and Africa",
                     "region" : "Region : UAE Central", 
                     "location": "Location : Abu Dhabi",
                     "latitude" : 24.078788, 
-                    "longitude": 51.725599
+                    "longitude": 51.725599,
+                    "country_code": "AE"
                   },
     "uaen":       { 
                   "geography" : "Middle East and Africa",
                     "region" : "Region : UAE North", 
                     "location": "Location : Dubai",
                     "latitude" : 25.276987,
-                    "longitude": 55.296249
+                    "longitude": 55.296249,
+                    "country_code": "AE"
                   },
     "uswest":     { 
                     "geography" : "Americas",
                     "region" : "Region : West US", 
                     "location": "Location : California",
                     "latitude" : 37.33939,
-                    "longitude": -121.89496
+                    "longitude": -121.89496,
+                    "country_code": "US-CA"
                   },
     "uswest2":    { 
                     "geography" : "Americas",
                     "region" : "Region : West US 2", 
                     "location": "Location : Washington",
                     "latitude" : 47.608013,
-                    "longitude": -122.335167
+                    "longitude": -122.335167,
+                    "country_code": "US-WA"
                    },
     "uswestcentral":{ 
                     "geography" : "Americas",
                     "region" : "Region : West Central US", 
                     "location": "Location : Wyoming",
                     "latitude" : 42.8342,
-                    "longitude": -106.3217
+                    "longitude": -106.3217,
+                    "country_code": "US-WY"
                    },
     "southcentralus":{ 
                     "geography" : "Americas",
                     "region" : "Region : South Central US", 
                     "location": "Location : Texas",
                     "latitude" : 42.8342,
-                    "longitude": -106.3217
+                    "longitude": -106.3217,
+                    "country_code": "US-TX"
                    },
     "uscentral":   { 
                    "geography" : "Americas",
                    "region" : "Region : Central US", 
                    "location": "Location : Iowa",
                    "latitude" : 42.032974,
-                   "longitude": -93.581543
+                   "longitude": -93.581543,
+                   "country_code": "US-IA"
                    },
     "usdodcentral":{ 
                    "geography" : "Azure Government",
                    "region" : "Region : US DoD Central", 
                    "location": "Location : Iowa",
                    "latitude" : 43.140499438, 
-                   "longitude": -95.1416661
+                   "longitude": -95.1416661,
+                   "country_code": "US-IA"
                   },
     "usgovcentral":{ "geography" : "Azure Government",
                   "region" : "Region : US Gov Iowa", 
                   "location": "Location : Iowa",
                   "latitude" : 41.66113,
-                  "longitude": -91.53017
+                  "longitude": -91.53017,
+                  "country_code": "US-IA"
                  },
     "usgovsw":   {"geography" : "Azure Government",
                   "region" : "Region : US Gov Arizona", 
                  "location": "Location : Arizona",
                  "latitude" : 33.424564,
-                 "longitude": -111.928001
+                 "longitude": -111.928001,
+                 "country_code": "US-AZ"
                  },
     "usgovsc":  { "geography" : "Azure Government",
                 "region" : "Region : US Gov Texas", 
                  "location": "Location : Texas",
                  "latitude" : 30.7164, 
-                 "longitude": -101.2388
+                 "longitude": -101.2388,
+                 "country_code": "US-TX"
                 },
     "usgoveast":{ "geography" : "Azure Government",
                 "region" : "Region : US Gov Virginia", 
                 "location": "Location : Virginia",
                 "latitude" :  36.68763,
-                "longitude": -83.113709
+                "longitude": -83.113709,
+                "country_code": "US-VA"
                 },
     "usdodeast":{ "geography" : "Azure Government",
                 "region" : "Region : US DoD East", 
                 "location": "Location : Virginia",
                 "latitude" : 38.750660, 
-                "longitude": -77.475143
+                "longitude": -77.475143,
+                "country_code": "US-VA"
                },
     "useast":{ "geography" : "Americas",
                 "region" : "Region : East US", 
                 "location": "Location : Virginia",
                 "latitude" : 37.541290,
-                "longitude": -77.434769
+                "longitude": -77.434769,
+                "country_code": "US-VA"
                },
     "useast2":{  "geography" : "Americas",
                 "region" : "Region : East US 2", 
                 "location": "Location : Virginia",
                 "latitude" : 37.270969, 
-                "longitude": -79.941429
+                "longitude": -79.941429,
+                "country_code": "US-VA"
               },
     "usnorth":{  "geography" : "Americas",
                 "region" : "Region : North Central US", 
                 "location": "Location : Illinois",
                 "latitude" : 39.8017,
-                "longitude": -89.6437
+                "longitude": -89.6437,
+                "country_code": "US-IL"
                },
     "ussouth":{  "geography" : "Americas",
                 "region" : "Region : South Central US", 
                 "location": "Location : Texas",
                 "latitude" : 32.78306,
-                "longitude": -96.80667
+                "longitude": -96.80667,
+                "country_code": "US-TX"
               },
     "germanycentral":{ 
                 "geography" : "Europe",
                 "region" : "Region : Germany Central", 
                 "location": "Location : Frankfurt",
                 "latitude" : 48.137154,
-                "longitude": 11.576124
+                "longitude": 11.576124,
+                "country_code": "DE-HE"
                },
     "germanynortheast":{ 
                 "geography" : "Europe",
                 "region" : "Region : Germany Northeast", 
                 "location": "Location : Magdeburg",
                 "latitude" : 52.156,
-                "longitude": 11.5789
+                "longitude": 11.5789,
+                "country_code": "DE-ST"
               },
     "francec":{ "geography" : "Europe",
                 "region" : "Region : France Central", 
                 "location": "Location : Paris",
                 "latitude" : 48.85341,
-                "longitude": 2.3488
+                "longitude": 2.3488,
+                "country_code": "FR-IDF"
                },
     "frances":{ "geography" : "Europe",
                 "region" : "Region : France South", 
                 "location": "Location : Marseille",
                 "latitude" : 43.28764, 
-                "longitude": 5.37918
+                "longitude": 5.37918,
+                "country_code": "FR-PAC"
               },
     "europenorth":{ "geography" : "Europe",
                 "region" : "Region : North Europe", 
                 "location": "Location : Ireland",
                 "latitude" : 53.350140,
-                "longitude": -6.266155
+                "longitude": -6.266155,
+                "country_code": "IE"
                },
     "europewest":{ "geography" : "Europe",
                 "region" : "Region : West Europe", 
                 "location": "Location : Netherlands",
                 "latitude" : 52.370216,
-                "longitude": 4.895168
+                "longitude": 4.895168,
+                "country_code": "NL"
               },
     "uksouth":{ "geography" : "Europe",
                 "region" : "Region : UK South", 
                 "location": "Location : London",
                 "latitude" : 51.509865,
-                "longitude": -0.118092
+                "longitude": -0.118092,
+                "country_code": "GB"
                },
     "ukwest":{ "geography" : "Europe",
                 "region" : "Region : UK West", 
                 "location": "Location : Cardiff",
                 "latitude" : 53.4106,
-                "longitude": -2.9779
+                "longitude": -2.9779,
+                "country_code": "GB"
               }
-
 }
