@@ -19,7 +19,7 @@ class TopNavbar extends Component {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="/geographical/5">Azure Government</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#">Region</Nav.Link>
+                    <Nav.Link href="/regional">Region</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
